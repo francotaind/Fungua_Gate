@@ -20,4 +20,16 @@ const poolConfig = {
 // Create the connection pool
 const pool = mysql.createPool(poolConfig);
 
+const testConnection = async () => {
+    try {
+        const connection = await pool.getConnection();
+        console.log('Connected to Database!');
+        connection.release();
+    } catch (err) {
+        console.error('Error connecting to Database', err);
+    }
+};
+
+testConnection();
+
 module.exports = pool;
