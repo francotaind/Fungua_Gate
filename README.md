@@ -12,9 +12,9 @@ Fungua Gate is a modern and efficient event ticketing system designed to streaml
 
 ## Technologies Used
 
-- **Frontend**: [Vue.js]
 - **Backend**: Node.js with Express.js
-- **Database**: MongoDB
+- **Database**: MysQL
+- **Authentication**: JWT
 
 
 ## Installation
@@ -23,4 +23,24 @@ Fungua Gate is a modern and efficient event ticketing system designed to streaml
    ```bash
    git clone https://github.com/yourusername/fungua-gate.git
    cd fungua-gate
+   ```
+2. Install dependencies:
+   ```bash
+npm install
+   ```
+3. Create a `.env` file in the root directory and add the environment variables:
+   ```bash
+    PORT
+    DB_HOST
+    DB_USER
+    DB_PASSWORD
+    DB_NAME
+    JWT_SECRET
+
+   ```
+4. Start the server:
+   ```bash
+   npm start
+   ```
+
 
