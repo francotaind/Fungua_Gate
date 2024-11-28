@@ -26,7 +26,7 @@ Fungua Gate is a modern and efficient event ticketing system designed to streaml
    ```
 2. Install dependencies:
    ```bash
-npm install
+    npm install
    ```
 3. Create a `.env` file in the root directory and add the environment variables:
    ```bash
