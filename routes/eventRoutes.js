@@ -1,21 +1,16 @@
 // routes/eventRoutes.js
 const express = require('express');
 const router = express.Router();
-const eventController = require('../controllers/eventController');
+const { authenticateToken } = require('../middlewares/authMiddleware');
+const EventController = require('../controllers/eventController');
 
 // Create a new event
-router.post('/', eventController.createEvent);
-
-// Get all events
-router.get('/', eventController.getAllEvents);
-
-// Get a single event
-router.get('/:id', eventController.getEvent);
-
-// Update an event
-router.put('/:id', eventController.updateEvent);
-
-// Delete an event
-router.delete('/:id', eventController.deleteEvent);
-
+router.post('/', authenticateToken, EventController.createEvent);
+router.get('/', EventController.getAllEvents);
+router.get('/:id', EventController.getEventById);
+router.put('/:id', authenticateToken, EventController.updateEvent);
+router.delete('/:id', authenticateToken, EventController.deleteEvent);
+router.get('/:id/tickets', EventController.getEventTickets);
+router.get('/:id/tickets/:type', EventController.getAvailableTickets);
+router.post('/tickets/:ticketId/purchase', authenticateToken, EventController.purchaseTicket);
 module.exports = router;

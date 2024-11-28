@@ -23,8 +23,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/auth", authRoutes);
-app.use('/api/events', eventRoutes);
+app.use('/events', eventRoutes);
 
+app.get('/server-time', (req, res) => {
+    const serverTime = new Date().toISOString(); // Logs time in UTC
+    console.log(`Server time is: ${serverTime}`);
+    res.send(`Server time is: ${serverTime}`);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
