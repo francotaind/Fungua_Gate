@@ -23,4 +23,6 @@ TestResults.xml
 
 node_modules/
 .env
-ca-cert.pem 
+ca-cert.pem
+
+.docs 
